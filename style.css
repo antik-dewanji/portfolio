@@ -389,3 +389,200 @@ footer {
         justify-content: flex-start;
     }
 }
+/* ========================================
+   CERTIFICATE IMAGES STYLING
+   Add this to the bottom of your style.css
+   ======================================== */
+
+/* Certificate Image Container */
+.cert-image-container {
+    position: relative;
+    margin: 15px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.cert-image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Certificate Image */
+.cert-image {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.cert-image:hover {
+    opacity: 0.95;
+    transform: scale(1.02);
+}
+
+/* Image Overlay */
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 12px 12px;
+}
+
+.cert-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+}
+
+/* Certificate Modal */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    margin: 3% auto;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    padding: 20px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: -60px;
+    right: 10px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to { 
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+}
+
+/* Certificate Item Enhancement */
+.cert-item:has(.cert-image-container) {
+    border: 2px solid transparent;
+    background: linear-gradient(145deg, #ffffff, #f0f2f5);
+    transition: all 0.3s ease;
+}
+
+.cert-item:has(.cert-image-container):hover {
+    border-color: rgba(74, 144, 226, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Verified Badge Enhancement */
+.cert-verified {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .cert-image {
+        max-height: 220px;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .modal-content img {
+        max-height: 75vh;
+        border-radius: 10px;
+    }
+    
+    .close-btn {
+        top: -50px;
+        right: 5px;
+        font-size: 35px;
+    }
+    
+    .image-overlay span {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-image {
+        max-height: 180px;
+    }
+    
+    .modal-content {
+        margin: 8% auto;
+        width: 98%;
+    }
+    
+    .close-btn {
+        top: -45px;
+        font-size: 30px;
+    }
+}
