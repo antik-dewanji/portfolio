@@ -4,289 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antik Kumar Dewanji - ERP Consultant & Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            font-weight: bold;
-        }
-
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #555;
-        }
-
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        .experience-item, .education-item {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease;
-        }
-
-        .experience-item:hover, .education-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .job-title {
-            color: #2c3e50;
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .company {
-            color: #667eea;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .duration {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            border-top: 5px solid #667eea;
-        }
-
-        .skill-category h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-        }
-
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-item {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 20px;
-            border-left: 5px solid #27ae60;
-            transition: transform 0.3s ease;
-        }
-
-        .cert-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .cert-name {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .cert-institute {
-            color: #667eea;
-            font-size: 0.9rem;
-        }
-
-        .achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .achievement-item {
-            background: linear-gradient(45deg, #f39c12, #e67e22);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .achievement-item:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            header {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .summary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 15px;
-            padding: 30px;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .personal-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .info-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .info-label {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .info-value {
-            color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="profile-img">AD</div>
+            <img src="profile.jpg" alt="Antik Kumar Dewanji" class="profile-img-photo">
             <h1>Antik Kumar Dewanji</h1>
-            <p class="subtitle">ERP Functional Consultant | Oracle Specialist | Web Developer</p>
+            <p class="subtitle">ERP Functional Consultant | Oracle Specialist | AI & Data Science Enthusiast</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <span>📧</span>
@@ -305,7 +30,7 @@
 
         <section class="section">
             <div class="summary">
-                <strong>Professional Summary:</strong> Dedicated and detail-oriented ERP Functional Consultant with over 4 years of experience in Oracle EBS R12 Financials within ICAR's public sector framework. Skilled in financial operations, MIS reporting, PFMS, GeM, and portal management. Proficient in data analysis, Excel automation, and ICT applications in administrative and research domains. Reliable, fast-learning, and experienced in handling multiple government e-portals.
+                <strong>Professional Summary:</strong> Dedicated and detail-oriented ERP Functional Consultant with over 4 years of experience in Oracle EBS R12 Financials within ICAR's public sector framework. Recently certified in AI and Data Science technologies including Generative AI, Python for AI, Machine Learning, and Data Analytics. Skilled in financial operations, MIS reporting, PFMS, GeM, and portal management. Proficient in data analysis, Excel automation, and ICT applications in administrative and research domains. Reliable, fast-learning professional with comprehensive expertise in both traditional ERP systems and modern AI/ML technologies.
             </div>
         </section>
 
@@ -369,8 +94,20 @@
                     </div>
                 </div>
                 <div class="skill-category">
+                    <h3>AI & Data Science</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Python for AI</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">AI Intelligence</span>
+                    </div>
+                </div>
+                <div class="skill-category">
                     <h3>Programming & Development</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
                         <span class="skill-tag">PHP</span>
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">MySQL</span>
@@ -391,13 +128,6 @@
                         <span class="skill-tag">Photoshop</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Operating Systems</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Windows 7/8/10/11</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -413,13 +143,13 @@
             <div class="education-item">
                 <div class="job-title">Diploma in Computer Science & Technology</div>
                 <div class="company">West Bengal State Council of Technical Education (WBSCTE)</div>
-                <div class="duration">2010 • 68%</div>
+                <div class="duration">2010 • 78%</div>
             </div>
 
             <div class="education-item">
                 <div class="job-title">Madhyamik (Secondary Education)</div>
                 <div class="company">West Bengal Board of Secondary Education (WBBSE)</div>
-                <div class="duration">2006 • 48%</div>
+                <div class="duration">2006 • 69%</div>
             </div>
         </section>
 
@@ -427,12 +157,32 @@
             <h2>Certifications</h2>
             <div class="certifications">
                 <div class="cert-item">
-                    <div class="cert-name">Oracle Apps R12 Financials</div>
-                    <div class="cert-institute">Udemy (July 2024)</div>
+                    <div class="cert-name">Oracle Apps R12 Financials Course Plus 11 Add On Courses</div>
+                    <div class="cert-institute">Udemy (July 2024) • 119.5 total hours</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-name">Generative AI Foundations Certificate Program</div>
+                    <div class="cert-institute">upGrad & Microsoft (June 2025)</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-name">Python Fundamentals in 90 Minutes - AI & Data Foundation</div>
+                    <div class="cert-institute">WsCube Tech (June 2025)</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-name">Data Analytics Assessment</div>
+                    <div class="cert-institute">LearnTube by CareerNinja (July 2024)</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-name">Python Using AI Workshop</div>
+                    <div class="cert-institute">AI For Techies (June 2025)</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-name">Data Science & Machine Learning - AI Intelligence Program</div>
+                    <div class="cert-institute">Scalar Masterclass (May 2025)</div>
                 </div>
                 <div class="cert-item">
                     <div class="cert-name">Oracle RDBMS</div>
-                    <div class="cert-institute">IndiaCan (June-July 2011)</div>
+                    <div class="cert-institute">IndiaCan (June-July 2011) • 30 hours</div>
                 </div>
                 <div class="cert-item">
                     <div class="cert-name">Photoshop</div>
