@@ -229,6 +229,15 @@
                         <h3>Generative AI Foundations Certificate Program</h3>
                         <div class="cert-provider">upGrad × Microsoft</div>
                         <div class="cert-date">June 11, 2025</div>
+                        
+                        <!-- Certificate Image -->
+                        <div class="cert-image-container">
+                            <img src="generative-ai-certificate.jpg" alt="Generative AI Certificate" class="cert-image" onclick="openCertModal('generative-ai-certificate.jpg')">
+                            <div class="image-overlay">
+                                <span>Click to view full certificate</span>
+                            </div>
+                        </div>
+                        
                         <div class="cert-skills">
                             <span class="skill-tag">Generative AI</span>
                             <span class="skill-tag">Prompt Engineering</span>
@@ -248,13 +257,22 @@
                         <h3>Python Using AI Workshop</h3>
                         <div class="cert-provider">AI For Techies</div>
                         <div class="cert-date">June 5, 2025</div>
+                        
+                        <!-- Certificate Image -->
+                        <div class="cert-image-container">
+                            <img src="python-ai-workshop.jpg" alt="Python AI Workshop Certificate" class="cert-image" onclick="openCertModal('python-ai-workshop.jpg')">
+                            <div class="image-overlay">
+                                <span>Click to view full certificate</span>
+                            </div>
+                        </div>
+                        
                         <div class="cert-skills">
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">AI Integration</span>
                             <span class="skill-tag">Data Visualization</span>
                             <span class="skill-tag">Code Debugging</span>
                         </div>
-                        <div class="cert-verified">✅ Verified Certificate</div>
+                        <div class="cert-verified">✅ Verified Certificate with QR Code</div>
                     </div>
                 </div>
 
@@ -265,6 +283,15 @@
                         <h3>Python Fundamentals for AI & Data</h3>
                         <div class="cert-provider">WsCube Tech</div>
                         <div class="cert-date">July 7, 2025</div>
+                        
+                        <!-- Certificate Image -->
+                        <div class="cert-image-container">
+                            <img src="python-fundamentals.jpg" alt="Python Fundamentals Certificate" class="cert-image" onclick="openCertModal('python-fundamentals.jpg')">
+                            <div class="image-overlay">
+                                <span>Click to view full certificate</span>
+                            </div>
+                        </div>
+                        
                         <div class="cert-skills">
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">Data Analysis</span>
@@ -360,6 +387,26 @@
             </div>
         </section>
 
+        <!-- Certificate Modal -->
+        <div id="certificateModal" class="certificate-modal" onclick="closeCertModal()">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeCertModal()">&times;</span>
+                <img id="modalCertImage" src="" alt="Certificate">
+            </div>
+        </div>
+
+        <script>
+        function openCertModal(imageSrc) {
+            document.getElementById('certificateModal').style.display = 'block';
+            document.getElementById('modalCertImage').src = imageSrc;
+        }
+
+        function closeCertModal() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+        </script>
+
+             
         <section class="section">
             <h2>Achievements</h2>
             <div class="achievements">
