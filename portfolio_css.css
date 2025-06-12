@@ -42,6 +42,21 @@ header {
     font-weight: bold;
 }
 
+.profile-img-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    border: 5px solid #667eea;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.profile-img-photo:hover {
+    transform: scale(1.05);
+}
+
 h1 {
     color: #2c3e50;
     font-size: 2.5rem;
