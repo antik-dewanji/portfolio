@@ -3,25 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antik Kumar Dewanji - ERP Consultant & Developer</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Fixed Education Section</title>
     <style>
-        /* Enhanced Certificate Section with Advanced Animations */
-        .cert-item {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 25px 0;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #28a745;
-            overflow: hidden;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .cert-item::before {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Education Items Grid */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        /* Individual Education Item */
+        .education-item {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #28a745;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .education-item::before {
             content: "";
             position: absolute;
             top: 0;
@@ -29,401 +70,211 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
+            transition: left 0.6s;
         }
 
-        .cert-item:hover::before {
+        .education-item:hover::before {
             left: 100%;
         }
 
-        .cert-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            border-color: rgba(102, 126, 234, 0.5);
+        .education-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
             border-left-color: #667eea;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
         }
 
-        /* Certificate Header Enhanced */
-        .cert-header {
+        /* Education Header */
+        .education-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
+            margin-bottom: 25px;
+            gap: 20px;
         }
 
-        .cert-header h3 {
-            font-size: 1.4rem;
+        .degree-title {
+            flex: 1;
+        }
+
+        .degree-title h3 {
+            font-size: 1.5rem;
             font-weight: 700;
             color: #2c3e50;
-            flex: 1;
-            min-width: 250px;
-            margin: 0;
+            margin-bottom: 8px;
             transition: color 0.3s ease;
+            line-height: 1.3;
         }
 
-        .cert-item:hover .cert-header h3 {
+        .education-item:hover .degree-title h3 {
             color: #667eea;
         }
 
-        .cert-badge {
-            font-size: 2.5rem;
+        .education-badge {
+            font-size: 2.8rem;
             flex-shrink: 0;
-            align-self: flex-start;
             transition: transform 0.3s ease;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
-        .cert-item:hover .cert-badge {
+        .education-item:hover .education-badge {
             transform: scale(1.1) rotate(5deg);
         }
 
-        /* Certificate Provider and Date Enhanced */
-        .cert-provider {
+        /* Institution Details */
+        .institution {
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
-        .cert-item:hover .cert-provider {
+        .education-item:hover .institution {
             color: #5a67d8;
             transform: translateX(5px);
         }
 
-        .cert-date {
+        .education-year {
             color: #6c757d;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 20px;
             transition: all 0.3s ease;
         }
 
-        .cert-item:hover .cert-date {
+        .education-item:hover .education-year {
             color: #4a5568;
         }
 
-        /* Certificate Image Container Enhanced */
-        .cert-image-container {
-            position: relative;
+        /* Grade/Score Display */
+        .grade-display {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
             margin: 20px 0;
-            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: #f8f9fa;
-            cursor: pointer;
         }
 
-        .cert-image-container:hover {
-            transform: translateY(-5px) rotateX(2deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Certificate Image Enhanced */
-        .cert-image {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
-            transition: all 0.4s ease;
-            border-radius: 15px;
-            display: block;
-        }
-
-        .cert-image:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1) contrast(1.1);
-        }
-
-        /* Certificate Placeholder Enhanced */
-        .cert-placeholder {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            border-radius: 15px;
+        .grade-display::before {
+            content: "🏆";
+            margin-right: 10px;
             font-size: 1.2rem;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
+        }
+
+        .education-item:hover .grade-display {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Education Details */
+        .education-details {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-top: 20px;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
         }
 
-        .cert-placeholder:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        .education-item:hover .education-details {
+            color: #4a5568;
+            transform: translateX(3px);
         }
 
-        .cert-placeholder::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        /* Image Overlay Enhanced */
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-            color: white;
-            padding: 20px;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.4s ease;
-            border-radius: 0 0 15px 15px;
-            transform: translateY(20px);
-        }
-
-        .cert-image-container:hover .image-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .image-overlay span {
-            font-size: 1rem;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            letter-spacing: 0.5px;
-        }
-
-        /* Certificate Modal Enhanced */
-        .certificate-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s ease;
-            backdrop-filter: blur(8px);
-        }
-
-        .modal-content {
-            position: relative;
-            margin: 3% auto;
-            width: 90%;
-            max-width: 1000px;
-            text-align: center;
-            padding: 20px;
-            animation: modalSlideIn 0.4s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from { transform: scale(0.7) translateY(-50px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
-        }
-
-        @keyframes modalSlideOut {
-            from { transform: scale(1) translateY(0); opacity: 1; }
-            to { transform: scale(0.7) translateY(-50px); opacity: 0; }
-        }
-
-        .modal-content img {
-            width: 100%;
-            height: auto;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            border: 3px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Close Button Enhanced */
-        .close-btn {
-            position: absolute;
-            top: -60px;
-            right: 10px;
-            color: #ffffff;
-            font-size: 45px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-            line-height: 1;
-        }
-
-        .close-btn:hover {
-            color: #ff6b6b;
-            transform: scale(1.2) rotate(90deg);
-        }
-
-        /* Fade Animation Enhanced */
-        @keyframes fadeIn {
-            from { 
-                opacity: 0;
-                backdrop-filter: blur(0px);
-            }
-            to { 
-                opacity: 1;
-                backdrop-filter: blur(8px);
-            }
-        }
-
-        /* Certificate Skills Tags - Enhanced with Advanced Animations */
-        .cert-skills {
+        /* Skills Related to Education */
+        .education-skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 25px 0;
-            align-items: flex-start;
-            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .cert-skills .skill-tag {
+        .education-skills .skill-tag {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: white;
-            text-align: center;
-            white-space: nowrap;
-            min-height: 38px;
-            line-height: 1.2;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .cert-skills .skill-tag::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-
-        .cert-skills .skill-tag:hover::before {
-            left: 100%;
-        }
-
-        .cert-skills .skill-tag:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
-        }
-
-        /* Tag Color Variations */
-        .cert-skills .skill-tag.tag-ai { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-        }
-        .cert-skills .skill-tag.tag-python { 
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
-        }
-        .cert-skills .skill-tag.tag-data { 
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); 
-        }
-        .cert-skills .skill-tag.tag-research { 
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); 
-        }
-        .cert-skills .skill-tag.tag-engineering { 
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); 
-            color: #333; 
-        }
-        .cert-skills .skill-tag.tag-oracle { 
-            background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%); 
-        }
-
-        /* Certificate Description Enhanced */
-        .cert-description {
-            color: #6c757d;
-            line-height: 1.6;
-            margin: 20px 0;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .cert-item:hover .cert-description {
-            color: #4a5568;
-            transform: translateX(5px);
-        }
-
-        /* Verified Badge Enhanced with Pulse Animation */
-        .cert-verified {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
-            margin: 15px 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .cert-verified:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-        }
-
-        .cert-verified::before {
-            content: "✓";
-            font-weight: bold;
-            font-size: 1.2rem;
-            animation: checkPulse 2s infinite;
-        }
-
-        @keyframes checkPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Certificate ID Enhanced */
-        .cert-id {
-            font-family: 'Courier New', monospace;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.85rem;
-            color: #868e96;
-            background: rgba(248, 249, 250, 0.9);
-            padding: 10px 15px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 15px;
-            border: 2px solid #e9ecef;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .cert-id:hover {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
-            transform: translateY(-1px);
+        .education-skills .skill-tag:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
         }
 
-        /* Scroll Animation Classes */
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .education-item {
+                padding: 25px;
+            }
+            
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .degree-title h3 {
+                font-size: 1.3rem;
+            }
+            
+            .education-badge {
+                font-size: 2.5rem;
+                align-self: flex-end;
+            }
+            
+            .grade-display {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .education-item {
+                padding: 20px;
+            }
+            
+            .degree-title h3 {
+                font-size: 1.2rem;
+            }
+            
+            .education-badge {
+                font-size: 2.2rem;
+            }
+            
+            .grade-display {
+                font-size: 0.9rem;
+                padding: 10px 18px;
+            }
+        }
+
+        /* Animation for scroll reveal */
         .fade-in {
-            opacity: 1;
-            transform: none;
-            animation: none;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         @keyframes fadeInUp {
@@ -433,689 +284,79 @@
             }
         }
 
-        /* Pulse Glow Animation */
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
-            50% { box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); }
-        }
-
-        /* Float Animation */
-        @keyframes floatAnimation {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Ripple Animation */
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Sparkle Float Animation */
-        @keyframes sparkleFloat {
-            0% { transform: translateY(0) scale(0); opacity: 1; }
-            50% { transform: translateY(-20px) scale(1); opacity: 1; }
-            100% { transform: translateY(-40px) scale(0); opacity: 0; }
-        }
-
-        /* Section Title Enhancement */
-        .section h2.cert-title {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
-            100% { text-shadow: 0 0 30px rgba(118, 75, 162, 0.8), 0 0 40px rgba(102, 126, 234, 0.3); }
-        }
-
-        /* Mobile Responsive Enhanced */
-        @media (max-width: 768px) {
-            .cert-item {
-                padding: 25px;
-                margin: 15px 0;
-            }
-            
-            .cert-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .cert-header h3 {
-                font-size: 1.3rem;
-                min-width: auto;
-            }
-            
-            .cert-badge {
-                align-self: flex-end;
-            }
-            
-            .cert-skills {
-                gap: 8px;
-            }
-            
-            .cert-skills .skill-tag {
-                font-size: 0.8rem;
-                padding: 8px 14px;
-                min-height: 34px;
-            }
-            
-            .cert-image, .cert-placeholder {
-                max-height: 220px;
-            }
-            
-            .modal-content {
-                margin: 5% auto;
-                width: 95%;
-                padding: 10px;
-            }
-            
-            .modal-content img {
-                max-height: 75vh;
-                border-radius: 10px;
-            }
-            
-            .close-btn {
-                top: -50px;
-                right: 5px;
-                font-size: 35px;
-            }
-            
-            .image-overlay span {
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cert-item {
-                padding: 20px;
-            }
-            
-            .cert-skills .skill-tag {
-                font-size: 0.75rem;
-                padding: 6px 12px;
-                min-height: 30px;
-            }
-            
-            .cert-image, .cert-placeholder {
-                max-height: 180px;
-            }
-            
-            .modal-content {
-                margin: 8% auto;
-                width: 98%;
-            }
-            
-            .close-btn {
-                top: -45px;
-                font-size: 30px;
-            }
-        }
+        /* Stagger animation delay */
+        .education-item:nth-child(1) { animation-delay: 0.1s; }
+        .education-item:nth-child(2) { animation-delay: 0.2s; }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="profile.jpg" alt="Antik Kumar Dewanji" class="profile-img-photo">
-            <h1>Antik Kumar Dewanji</h1>
-            <p class="subtitle">Techno-Functional Consultant – ERP, HRMS & DevOps | Oracle EBS R12 | Data Science | CI/CD | AI-Powered HR Tech Specialist</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>antikdewanji@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>+91-8777019885</span>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
-                    <span>Kolkata, West Bengal, India</span>
-                </div>
-            </div>
-        </header>
-
         <section class="section">
-            <div class="summary">
-                <strong>Professional Summary:</strong> Techno-Functional ERP & HRMS Consultant with hands-on expertise in Oracle EBS R12 Financials, e-HRMS 2.0, and Payroll Samarth within government sector ERP systems like ICAR. Skilled in designing and optimizing employee lifecycle management systems, including payroll processing, performance evaluation, and compliance automation. Certified in Python for AI, Generative AI, Machine Learning, and Data Analytics, with a strong focus on applying data science techniques to HR processes — such as attrition prediction, attendance analysis, and payroll forecasting. Technically adept in full-stack development (HTML5, CSS3, JavaScript, React, PHP, Java, Python) and DevOps tools like Git, GitHub, CI/CD pipelines, Docker, and Jenkins — enabling smooth deployment and version control of ERP solutions. Passionate about building intelligent, AI-driven HR systems that enhance transparency, accuracy, and organizational efficiency.
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Professional Experience</h2>
+            <h2>🎓 Education</h2>
             
-            <div class="experience-item">
-                <div class="job-title">IT Professional-II</div>
-                <div class="company">ICAR-ATARI, Kolkata</div>
-                <div class="duration">September 2020 - March 2024</div>
-                <ul>
-                    <li>Managed and supported various national-level government portals including Karmayogi Bharati, iGOT Portal, KVK Portal, KRISHI Portal, ARMS 2.0, SPARROW, and eHRMS 2.0</li>
-                    <li>Handled Oracle ERP Financials operations including Cashbook, Bank Reconciliation Statements, Progressive Expenditure, PFMS entries, and GeM procurement tracking</li>
-                    <li>Responsible for ICT-related improvements, HRM assistance, website updates, and real-time data reporting on technologies and research outputs</li>
-                    <li>Prepared monthly accounts, ledger summaries, and ensured accurate documentation for audits and reporting</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Internship (Software & Management Information System)</div>
-                <div class="company">Animatrix, Kolkata</div>
-                <div class="duration">March 2019 - February 2020</div>
-                <ul>
-                    <li>Managed Excel-based MIS systems and supported internal software project tasks</li>
-                    <li>Developed reporting solutions and data analysis tools</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Operations Executive</div>
-                <div class="company">Vihaan Infrasystems India Ltd., Kolkata</div>
-                <div class="duration">July 2015 - February 2019</div>
-                <ul>
-                    <li>Worked with MS Excel dashboards and ASP.NET-based smart card systems</li>
-                    <li>Implemented Management Information Systems and report automation</li>
-                    <li>Managed smart card Project Management System in ASP.NET environment</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-title">Junior Software Developer</div>
-                <div class="company">UCDS (M/s. U.C. Dutta & Sons), Kolkata</div>
-                <div class="duration">June 2013 - May 2015</div>
-                <ul>
-                    <li>Developed PHP & MySQL-based internal tools and web applications</li>
-                    <li>Assisted with client-side scripting and database management</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>ERP & Database</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Oracle ERP Financials</span>
-                        <span class="skill-tag">Oracle SQL</span>
-                        <span class="skill-tag">Oracle DBA</span>
-                        <span class="skill-tag">Oracle RDBMS</span>
+            <div class="education-grid">
+                <!-- Bachelor's Degree -->
+                <div class="education-item fade-in">
+                    <div class="education-header">
+                        <div class="degree-title">
+                            <h3>Bachelor of Technology in Computer Science & Engineering</h3>
+                        </div>
+                        <div class="education-badge">🎓</div>
+                    </div>
+                    
+                    <div class="institution">West Bengal University of Technology (WBUT)</div>
+                    <div class="education-year">2013</div>
+                    
+                    <div class="grade-display">
+                        CGPA: 8.10 / 10.0
+                    </div>
+                    
+                    <div class="education-details">
+                        Comprehensive program covering software engineering, algorithms, data structures, database management, and system design. Specialized coursework in computer networks, operating systems, and software development methodologies.
+                    </div>
+                    
+                    <div class="education-skills">
+                        <span class="skill-tag">Software Engineering</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">DBMS</span>
+                        <span class="skill-tag">System Design</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>AI & Data Science</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Generative AI</span>
-                        <span class="skill-tag">Python for AI</span>
-                        <span class="skill-tag">Data Analytics</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Data Science</span>
-                        <span class="skill-tag">AI Intelligence</span>
+
+                <!-- Diploma -->
+                <div class="education-item fade-in">
+                    <div class="education-header">
+                        <div class="degree-title">
+                            <h3>Diploma in Computer Science & Technology</h3>
+                        </div>
+                        <div class="education-badge">📜</div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming & Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">ASP.NET</span>
+                    
+                    <div class="institution">West Bengal State Council of Technical Education (WBSCTE)</div>
+                    <div class="education-year">2010</div>
+                    
+                    <div class="grade-display">
+                        Score: 78%
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MS Excel (Advanced)</span>
-                        <span class="skill-tag">MIS Reporting</span>
-                        <span class="skill-tag">PFMS</span>
-                        <span class="skill-tag">GeM</span>
-                        <span class="skill-tag">E-office</span>
-                        <span class="skill-tag">Photoshop</span>
+                    
+                    <div class="education-details">
+                        Foundation program in computer science fundamentals, programming languages, and technical skills. Strong emphasis on practical application, problem-solving, and hands-on development experience.
+                    </div>
+                    
+                    <div class="education-skills">
+                        <span class="skill-tag">Programming</span>
+                        <span class="skill-tag">Web Development</span>
+                        <span class="skill-tag">Database</span>
+                        <span class="skill-tag">Technical Skills</span>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            
-            <div class="education-item">
-                <div class="job-title">Bachelor of Technology in Computer Science & Engineering</div>
-                <div class="company">West Bengal University of Technology (WBUT)</div>
-                <div class="duration">2013
-            </div>
-            
-            <div class="education-item">
-                <div class="job-title">Diploma in Computer Science & Technology</div>
-                <div class="company">West Bengal State Council of Technical Education (WBSCTE)</div>
-                <div class="duration">2010
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Live Projects</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>🚀 Professional Portfolio</h3>
-                        <div class="project-links">
-                            <a href="https://antik-dewanji.github.io/portfolio/" target="_blank" class="project-link live">Live Demo</a>
-                            <a href="https://github.com/antik-dewanji/portfolio" target="_blank" class="project-link github">GitHub</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Responsive portfolio website built with HTML5, CSS3, and modern design principles. 
-                        Features include mobile-first design, glassmorphism effects, and professional layout.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">GitHub Pages</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>🤖 AI Data Analytics Dashboard</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link live disabled">Coming Soon</a>
-                            <a href="#" class="project-link github disabled">Private Repo</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Python-based data analytics dashboard using machine learning for predictive insights. 
-                        Built with Flask, Pandas, and Scikit-learn for real-time data processing.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">ML</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>💼 Oracle ERP Automation Tool</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link live disabled">Internal Use</a>
-                            <a href="#" class="project-link github disabled">Confidential</a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Custom automation scripts for Oracle EBS R12 financial modules. Streamlined 
-                        reporting processes and reduced manual work by 70% for ICAR operations.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Oracle SQL</span>
-                        <span class="tech-tag">PL/SQL</span>
-                        <span class="tech-tag">Excel VBA</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="cert-title">🏆 Certifications</h2>
-            <div class="certifications-grid">
-                
-                <!-- Certificate 1: upGrad Microsoft -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Generative AI Foundations Certificate Program</h3>
-                        <div class="cert-badge">🤖</div>
-                    </div>
-                    <div class="cert-provider">upGrad × Microsoft</div>
-                    <div class="cert-date">June 11, 2025</div>
-                    
-                    <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('generative-ai-certificate.jpg')">
-                        <img src="generative-ai-certificate.jpg" alt="Generative AI Certificate" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-ai">Generative AI</span>
-                        <span class="skill-tag tag-engineering">Prompt Engineering</span>
-                        <span class="skill-tag tag-research">AI Research</span>
-                        <span class="skill-tag tag-engineering">Content Creation</span>
-                        <span class="skill-tag tag-data">Problem Solving</span>
-                        <span class="skill-tag tag-python">Automation</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        This certificate demonstrates proficiency in advanced AI concepts, machine learning algorithms, and practical implementation of generative AI systems for real-world applications.
-                    </div>
-                    
-                    <div class="cert-id">UID: LKuDokdRyFYkXc8H</div>
-                </div>
-
-                <!-- Certificate 2: AI For Techies -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Python Using AI Workshop</h3>
-                        <div class="cert-badge">🐍</div>
-                    </div>
-                    <div class="cert-provider">AI For Techies</div>
-                    <div class="cert-date">June 5, 2025</div>
-                    
-                    <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('python-ai-workshop.jpg')">
-                        <img src="python-ai-workshop.jpg" alt="Python AI Workshop Certificate" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-python">Python</span>
-                        <span class="skill-tag tag-ai">AI Integration</span>
-                        <span class="skill-tag tag-data">Data Visualization</span>
-                        <span class="skill-tag tag-engineering">Code Debugging</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Comprehensive workshop covering Python programming with AI integration, data visualization techniques, and advanced debugging methodologies for AI applications.
-                    </div>
-                    
-                    <div class="cert-verified">✅ Verified Certificate with QR Code</div>
-                </div>
-
-                <!-- Certificate 3: WsCube Tech -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Python Fundamentals for AI & Data</h3>
-                        <div class="cert-badge">📊</div>
-                    </div>
-                    <div class="cert-provider">WsCube Tech</div>
-                    <div class="cert-date">July 7, 2025</div>
-                    
-                    <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('python-fundamentals.jpg')">
-                        <img src="python-fundamentals.jpg" alt="Python Fundamentals Certificate" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-python">Python</span>
-                        <span class="skill-tag tag-data">Data Analysis</span>
-                        <span class="skill-tag tag-ai">Machine Learning</span>
-                        <span class="skill-tag tag-research">AI Foundation</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Foundation course in Python programming specifically designed for AI and data science applications, covering essential libraries and frameworks.
-                    </div>
-                    
-                    <div class="cert-id">Reg. ID: WS/2025/1/49666</div>
-                </div>
-
-                <!-- Certificate 4: Oracle Apps R12 -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Oracle Apps R12 Financials Course Plus 11 Add-On Courses</h3>
-                        <div class="cert-badge">🏢</div>
-                    </div>
-                    <div class="cert-provider">Udemy</div>
-                    <div class="cert-date">July 2024</div>
-
-                    <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('1721921210002.jpeg')">
-                        <img src="1721921210002.jpeg" alt="Oracle Apps R12 Financials" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-oracle">Oracle</span>
-                        <span class="skill-tag tag-engineering">Financial Systems</span>
-                        <span class="skill-tag tag-data">ERP</span>
-                        <span class="skill-tag tag-research">Business Applications</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Comprehensive certification in Oracle E-Business Suite R12 implementation, configuration, and optimization. Specialized in financial modules and custom reporting solutions.
-                    </div>
-                    
-                    <div class="cert-id">119.5 total hours</div>
-                </div>
-
-                <!-- Certificate 5: Data Analytics -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Data Analytics Assessment</h3>
-                        <div class="cert-badge">📈</div>
-                    </div>
-                    <div class="cert-provider">LearnTube by CareerNinja</div>
-                    <div class="cert-date">July 2024</div>
-
-                     <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('1721920987949.jpeg')">
-                        <img src="1721920987949.jpeg" alt="Data Analytics" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-data">Data Analytics</span>
-                        <span class="skill-tag tag-research">Statistics</span>
-                        <span class="skill-tag tag-python">Data Visualization</span>
-                        <span class="skill-tag tag-ai">Business Intelligence</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Advanced assessment covering statistical analysis, data visualization, and business intelligence techniques for data-driven decision making.
-                    </div>
-                </div>
-
-                <!-- Certificate 6: Scalar Masterclass -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Data Science & Machine Learning - AI Intelligence Program</h3>
-                        <div class="cert-badge">🧠</div>
-                    </div>
-                    <div class="cert-provider">Scalar Masterclass</div>
-                    <div class="cert-date">May 2025</div>
-
-                     <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('1749284213619.jpeg')">
-                        <img src="1749284213619.jpeg" alt="Data Science & Machine Learning" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-data">Data Science</span>
-                        <span class="skill-tag tag-ai">Machine Learning</span>
-                        <span class="skill-tag tag-research">AI Intelligence</span>
-                        <span class="skill-tag tag-python">Advanced Analytics</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Masterclass program covering advanced data science concepts, machine learning implementation, and AI intelligence systems for enterprise applications.
-                    </div>
-                </div>
-
-                <!-- Certificate 7: Oracle RDBMS -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Oracle RDBMS</h3>
-                        <div class="cert-badge">🗄️</div>
-                    </div>
-                    <div class="cert-provider">IndiaCan</div>
-                    <div class="cert-date">June-July 2011</div>
-
-                     <!-- Certificate Image -->
-                    <div class="cert-image-container" onclick="openCertModal('1721921534390.jpeg')">
-                        <img src="1721921534390.jpeg" alt="Oracle RDBMS" class="cert-image">
-                        <div class="image-overlay">
-                            <span>Click to view full certificate</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-oracle">Oracle Database</span>
-                        <span class="skill-tag tag-data">SQL</span>
-                        <span class="skill-tag tag-engineering">Database Administration</span>
-                        <span class="skill-tag tag-oracle">RDBMS</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Comprehensive certification in Oracle Database administration, SQL programming, and relational database management systems.
-                    </div>
-                    
-                    <div class="cert-id">30 hours certification</div>
-                </div>
-
-                <!-- Certificate 8: Photoshop -->
-                <div class="cert-item fade-in">
-                    <div class="cert-header">
-                        <h3>Photoshop</h3>
-                        <div class="cert-badge">🎨</div>
-                    </div>
-                    <div class="cert-provider">Brainware</div>
-                    <div class="cert-date">Dec 2009 - May 2010</div>
-                               
-                    <div class="cert-skills">
-                        <span class="skill-tag tag-engineering">Adobe Photoshop</span>
-                        <span class="skill-tag tag-research">Image Editing</span>
-                        <span class="skill-tag tag-engineering">Digital Design</span>
-                        <span class="skill-tag tag-research">Creative Arts</span>
-                    </div>
-                    
-                    <div class="cert-description">
-                        Professional training in Adobe Photoshop covering image editing, digital design principles, and creative visual arts techniques.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Certificate Modal -->
-        <div id="certificateModal" class="certificate-modal" onclick="closeCertModal()">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeCertModal()">&times;</span>
-                <img id="modalCertImage" src="" alt="Certificate">
-            </div>
-        </div>
-
-        <section class="section">
-            <h2>Achievements</h2>
-            <div class="achievements">
-                <div class="achievement-item">
-                    <h3>🏆 Vocational Excellence Award</h3>
-                    <p>Rotary Garden Reach</p>
-                </div>
-                <div class="achievement-item">
-                    <h3>📜 Certificate of Appreciation</h3>
-                    <p>Association of Otolaryngologists of India, W.B.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Personal Information</h2>
-            <div class="personal-info">
-                <div class="info-item">
-                    <div class="info-label">Date of Birth</div>
-                    <div class="info-value">10th July 1989</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Languages</div>
-                    <div class="info-value">Bengali, English, Hindi</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Nationality</div>
-                    <div class="info-value">Indian</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Marital Status</div>
-                    <div class="info-value">Married</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Hobbies</div>
-                    <div class="info-value">Dance, Photography, Web Development</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Other Skills</div>
-                    <div class="info-value">Video Editing, Painting, Kathak & Contemporary Dance</div>
-                </div>
-            </div>
-        </section>
-
     </div>
 
-    <footer>
-        <p>&copy; 2025 Antik Kumar Dewanji. All rights reserved.</p>
-        <p>Portfolio hosted via GitHub Pages</p>
-    </footer>
-
-    <!-- Enhanced Certificate Modal JavaScript -->
     <script>
-        // Enhanced Modal Functions with Advanced Animations
-        function openCertModal(imageSrc) {
-            const modal = document.getElementById('certificateModal');
-            const modalImage = document.getElementById('modalCertImage');
-            
-            if (modal && modalImage) {
-                modal.style.display = 'block';
-                modalImage.src = imageSrc;
-                document.body.style.overflow = 'hidden';
-                
-                // Add slide-in animation
-                const modalContent = modal.querySelector('.modal-content');
-                modalContent.style.animation = 'modalSlideIn 0.4s ease';
-            }
-        }
-
-        function closeCertModal() {
-            const modal = document.getElementById('certificateModal');
-            if (modal) {
-                const modalContent = modal.querySelector('.modal-content');
-                modalContent.style.animation = 'modalSlideOut 0.3s ease';
-                
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            }
-        }
-
-        // Close modal when clicking outside or pressing ESC
-        window.onclick = function(event) {
-            const modal = document.getElementById('certificateModal');
-            if (event.target === modal) {
-                closeCertModal();
-            }
-        }
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeCertModal();
-            }
-        });
-
-        // Enhanced functionality when page loads
+        // Scroll animation
         document.addEventListener('DOMContentLoaded', function() {
-            // Scroll-triggered animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1124,233 +365,28 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                        
-                        // Staggered animation for skill tags
-                        const skillTags = entry.target.querySelectorAll('.cert-skills .skill-tag');
-                        skillTags.forEach((tag, index) => {
-                            setTimeout(() => {
-                                tag.style.opacity = '1';
-                                tag.style.transform = 'translateY(0) scale(1)';
-                            }, index * 100);
-                        });
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
                     }
                 });
             }, observerOptions);
 
-            // Initially hide skill tags for animation
-            document.querySelectorAll('.cert-skills .skill-tag').forEach(tag => {
-                tag.style.opacity = '0';
-                tag.style.transform = 'translateY(20px) scale(0.8)';
-                tag.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            });
-
-            // Observe all certificate items
-            document.querySelectorAll('.cert-item').forEach(item => {
+            document.querySelectorAll('.education-item').forEach(item => {
                 observer.observe(item);
             });
 
-            // Enhanced ripple effects for skill tags
-            document.querySelectorAll('.cert-skills .skill-tag').forEach(tag => {
-                tag.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    
-                    // Scale animation
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-4px) scale(1.05)';
-                    }, 150);
-                    
-                    // Create multiple ripple effects
-                    for (let i = 0; i < 3; i++) {
-                        setTimeout(() => {
-                            createRippleEffect(this, e);
-                        }, i * 100);
-                    }
-                });
-                
-                // Add floating animation on hover
+            // Add hover effects for skill tags
+            document.querySelectorAll('.education-skills .skill-tag').forEach(tag => {
                 tag.addEventListener('mouseenter', function() {
-                    this.style.animation = 'floatAnimation 2s ease-in-out infinite';
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
                 });
                 
                 tag.addEventListener('mouseleave', function() {
-                    this.style.animation = '';
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
 
-            function createRippleEffect(element, event) {
-                const ripple = document.createElement('span');
-                ripple.style.position = 'absolute';
-                ripple.style.borderRadius = '50%';
-                ripple.style.background = 'rgba(255,255,255,0.6)';
-                ripple.style.transform = 'scale(0)';
-                ripple.style.animation = 'ripple 0.6s linear';
-                ripple.style.pointerEvents = 'none';
-                
-                const rect = element.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
-                ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
-                
-                element.style.position = 'relative';
-                element.style.overflow = 'hidden';
-                element.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            }
-
-            // Enhanced certificate item animations
-            document.querySelectorAll('.cert-item').forEach((item, index) => {
-                // Staggered animation on scroll
-                item.style.animationDelay = `${index * 0.1}s`;
-                
-                // Add glow effect on hover
-                item.addEventListener('mouseenter', function() {
-                    this.style.animation = 'pulseGlow 2s ease-in-out infinite';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.animation = '';
-                });
-                
-                // Enhanced hover effects for badges
-                const badge = item.querySelector('.cert-badge');
-                if (badge) {
-                    item.addEventListener('mouseenter', function() {
-                        badge.style.animation = 'floatAnimation 1.5s ease-in-out infinite';
-                    });
-                    
-                    item.addEventListener('mouseleave', function() {
-                        badge.style.animation = '';
-                    });
-                }
-            });
-
-            // Enhanced verified badge animation
-            document.querySelectorAll('.cert-verified').forEach(badge => {
-                badge.addEventListener('click', function() {
-                    this.style.transform = 'scale(1.1)';
-                    this.style.background = 'linear-gradient(135deg, #20c997, #28a745)';
-                    
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-2px)';
-                        this.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
-                    }, 200);
-                });
-            });
-
-            // Add sparkle effect to placeholders (if any)
-            document.querySelectorAll('.cert-placeholder').forEach(placeholder => {
-                placeholder.addEventListener('mouseenter', function() {
-                    createSparkles(this);
-                });
-            });
-
-            function createSparkles(element) {
-                for (let i = 0; i < 5; i++) {
-                    setTimeout(() => {
-                        const sparkle = document.createElement('div');
-                        sparkle.innerHTML = '✨';
-                        sparkle.style.position = 'absolute';
-                        sparkle.style.fontSize = '1rem';
-                        sparkle.style.pointerEvents = 'none';
-                        sparkle.style.animation = 'sparkleFloat 1.5s ease-out forwards';
-                        sparkle.style.left = Math.random() * 100 + '%';
-                        sparkle.style.top = Math.random() * 100 + '%';
-                        sparkle.style.zIndex = '10';
-                        
-                        element.appendChild(sparkle);
-                        
-                        setTimeout(() => {
-                            sparkle.remove();
-                        }, 1500);
-                    }, i * 100);
-                }
-            }
-
-            // Loading animation for certificate images
-            document.querySelectorAll('.cert-image-container').forEach(container => {
-                const img = container.querySelector('.cert-image');
-                if (img) {
-                    img.addEventListener('load', function() {
-                        this.style.opacity = '1';
-                        this.style.transform = 'scale(1)';
-                    });
-                    
-                    img.addEventListener('error', function() {
-                        console.warn('Failed to load certificate image:', this.src);
-                        // Add placeholder or error message
-                        const overlay = container.querySelector('.image-overlay span');
-                        if (overlay) {
-                            overlay.textContent = 'Image not available - Click to try again';
-                        }
-                        
-                        // Create a placeholder div if image fails
-                        const placeholder = document.createElement('div');
-                        placeholder.style.cssText = `
-                            width: 100%;
-                            height: 200px;
-                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: white;
-                            font-size: 1.2rem;
-                            font-weight: 600;
-                            border-radius: 15px;
-                            text-align: center;
-                            padding: 20px;
-                        `;
-                        placeholder.innerHTML = '📜<br>Certificate Image<br><small>Click to view</small>';
-                        
-                        this.style.display = 'none';
-                        container.appendChild(placeholder);
-                    });
-                }
-            });
-
-            // Add loading state for images
-            document.querySelectorAll('.cert-image').forEach(img => {
-                img.style.opacity = '0';
-                img.style.transform = 'scale(0.9)';
-                img.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            });
-
-            console.log('🎉 Enhanced Portfolio loaded with amazing certificate animations!');
+            console.log('✅ Education section loaded with enhanced animations!');
         });
-
-        // Preload certificate images for better performance
-        function preloadCertificateImages() {
-            const imageContainers = document.querySelectorAll('.cert-image-container img');
-            imageContainers.forEach(img => {
-                if (img.src && !img.complete) {
-                    const preloadImg = new Image();
-                    preloadImg.src = img.src;
-                }
-            });
-        }
-
-        // Enhanced page load animation
-       /*window.addEventListener('load', function() {
-            preloadCertificateImages();
-            
-            // Add a subtle fade-in animation to the entire page
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });*/
-
-        // Console styling for development
-        console.log('%c🚀 Antik Kumar Dewanji Portfolio', 'color: #667eea; font-size: 20px; font-weight: bold;');
-        console.log('%c✨ Enhanced with Advanced Certificate Animations', 'color: #28a745; font-size: 14px;');
-        console.log('%c🎭 Featuring: Shimmer, 3D Transforms, Ripples, Sparkles & More!', 'color: #ff6b6b; font-size: 12px;');
     </script>
-
 </body>
 </html>
