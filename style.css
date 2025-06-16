@@ -209,6 +209,13 @@ h1 {
     box-shadow: var(--shadow-medium);
 }
 
+.summary em {
+    display: block;
+    margin-top: 20px;
+    font-style: italic;
+    color: #f0f0f0;
+}
+
 .summary::before {
     content: "";
     position: absolute;
